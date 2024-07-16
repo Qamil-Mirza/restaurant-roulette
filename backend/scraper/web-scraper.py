@@ -26,6 +26,9 @@ data = []
 for card in cards:
     # find restaurant names
     restaurant_name = card.h3.text.replace('\n', '')
+    details_container = card.find('h3', id='directory__title')
+    details_link = details_container.a['href']
+    complete_details_link = f"https://www.1utama.com.my{details_link}"
 
     # find the p tag
     p = card.p.text
@@ -40,6 +43,7 @@ for card in cards:
 
     payload = {
         'restaurant_name': restaurant_name,
+        'details_link': complete_details_link,
         'location': location,
         'contact': contact,
         'img_link': img
@@ -50,7 +54,7 @@ for card in cards:
 json_data = json.dumps(data)
 
 # Write JSON data to a file
-with open('/home/qamil/code/restaurant-roulette/backend/data.json', 'w') as file:
+with open('restaurants.json', 'w') as file:
     file.write(json_data)
 
 driver.quit()
