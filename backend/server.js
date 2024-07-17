@@ -6,7 +6,7 @@ require('dotenv').config({
 
 const express = require('express');
 const cors = require('cors');
-const oneUtamaRestaurantData = require('./scraper/data.json');
+const oneUtamaRestaurantData = require('./scraper/restaurant_data.json');
 
 const app = express();
 const server_port = process.env.SERVER_PORT;

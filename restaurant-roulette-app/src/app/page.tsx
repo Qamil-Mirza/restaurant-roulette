@@ -2,16 +2,6 @@
 
 import React, { useState, useEffect } from 'react'
 import { RestaurantData } from '../../types';
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { Button } from '@/components/ui/button';
 import RestaurantCard from '@/components/custom/RestaurantCard';
 
 const home = () => {
@@ -49,16 +39,18 @@ const home = () => {
         <p className='text-black my-6'>Don't know what to eat at 1 Utama? Family and friends saying they're ok with anything? Click Generate To Randomly select a restaurant at One Utama!</p>
           <button
           className='text-white font-semibold rounded-full border-[2px] bg-black px-4 py-2 w-fit' 
-          onClick={() => generateRandomRestaurant()}>Generate</button>
+          onClick={() => generateRandomRestaurant()}
+          >
+            Generate
+          </button>
+          
           {selectedRestaurant && (
-          <div className='flex justify-center items-center'>
+          <div className='flex flex-col justify-center items-center'>
             <RestaurantCard 
-            restaurantName={selectedRestaurant?.restaurant_name ?? 'N/A'}
-            restaurantLocation={selectedRestaurant?.location ?? 'N/A'}
-            restaurantContact={selectedRestaurant?.contact ?? 'N/A'}
-            restaurantImg={selectedRestaurant?.img_link ?? 'https://via.placeholder.com/150'}
+            restaurantData={selectedRestaurant}
             />
           </div>
+
         )}
       </main>
     </div>
