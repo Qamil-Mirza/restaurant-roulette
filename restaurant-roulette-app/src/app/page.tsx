@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { RestaurantData } from '../../types';
 import RestaurantCard from '@/components/custom/RestaurantCard';
 
-const home = () => {
+const Home = () => {
   const [data, setData] = useState([])
   const [selectedRestaurant, setSelectedRestaurant] = useState<RestaurantData | null>(null);
 
@@ -57,5 +57,5 @@ const home = () => {
   )
 }
 
-export default home
+export default Home
 
